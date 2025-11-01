@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Volume Control</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .volume {
+            font-size: 28px;
+            color: #007bff;
+            margin-top: 25px;
+        }
+
+        /* Simple volume bar style */
+        .bar-container {
+            width: 60%;
+            background-color: #ddd;
+            margin: 20px auto;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            background-color: #007bff;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 Word Volume Control</h1>
+
+    <!-- Form triggers POST when button is clicked -->
+    <form method="POST">
+        <button type="submit">Generate Random Volume</button>
+    </form>
+
+    {% if volume is not none %}
+        <div class="volume">🔊 Volume: {{ volume }}</div>
+
+        <!-- Volume bar visualization -->
+        <div class="bar-container">
+            <div class="bar" style="width: {{ volume }}%;"></div>
+        </div>
+    {% endif %}
+</body>
+</html>
+Z
